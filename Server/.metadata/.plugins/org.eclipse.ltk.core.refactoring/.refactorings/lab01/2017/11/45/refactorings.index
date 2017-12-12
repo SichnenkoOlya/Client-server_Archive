@@ -1,0 +1,36 @@
+1509887486184	Rename package 'by.bsuir.lab01'
+1509887508783	Delete element
+1509887555949	Rename package 'by.bsuir.lab01'
+1509887934000	Encapsulate field 'university'
+1509887940935	Encapsulate field 'course'
+1509887958612	Encapsulate field 'adress'
+1509887985436	Delete element
+1509888004744	Delete element
+1509888760311	Encapsulate field 'id'
+1509889443010	Rename type 'MatterDAO'
+1509890102294	Rename type 'FileBookDAO'
+1509890171270	Rename type 'FileUserDAO'
+1509893525312	Delete element
+1509899148903	Copy package
+1509899168603	Copy package
+1509899192518	Copy package
+1509899223802	Copy package
+1509899230089	Delete element
+1509899236932	Delete element
+1509899274729	Copy package
+1509899280028	Delete element
+1509899287646	Delete element
+1509899293084	Delete element
+1509900033782	Delete element
+1509909422402	Copy package
+1509909457700	Delete element
+1509909490880	Copy package
+1509909564051	Copy package
+1509909570310	Delete element
+1509909661210	Delete element
+1509909664670	Delete element
+1509909709170	Delete element
+1509912574555	Copy compilation unit
+1509912585497	Copy compilation unit
+1509912598088	Copy compilation unit
+1509914025191	Encapsulate field 'command'

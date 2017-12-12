@@ -1,0 +1,46 @@
+package by.bsuir.archive.connect;
+
+import java.io.IOException;
+import java.net.InetAddress;
+
+import by.bsuir.archive.socket.SocketStream;
+
+public class Connection {
+
+	private static final Connection connection = new Connection();
+	private SocketStream socket = null;
+	private String hostName = "localhost";
+	private int portNumber = 3346;
+
+	public static Connection getInstance() {
+
+		return connection;
+	}
+
+	public SocketStream getSocket() {
+		return socket;
+	}
+
+	public void setSocket(SocketStream socket) {
+		this.socket = socket;
+	}
+
+	public void Start() {
+
+		try {
+			if (socket == null) {
+				socket = new SocketStream(InetAddress.getByName(hostName), portNumber);
+			}
+
+			if (socket == null) {
+
+			} else {
+
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

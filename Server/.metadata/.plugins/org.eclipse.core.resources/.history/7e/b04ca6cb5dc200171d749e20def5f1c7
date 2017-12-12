@@ -1,0 +1,11 @@
+package by.bsuir.archive.service;
+
+import by.bsuir.archive.domain.User;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public interface UserService {
+	
+	void register(User user) throws ServiceException;
+	void logination(String login, String password) throws ServiceException;
+
+}

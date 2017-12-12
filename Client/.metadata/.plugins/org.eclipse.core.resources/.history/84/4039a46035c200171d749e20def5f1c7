@@ -1,0 +1,5 @@
+package by.bsuir.archive.dao;
+
+public class DAOUser {
+
+}

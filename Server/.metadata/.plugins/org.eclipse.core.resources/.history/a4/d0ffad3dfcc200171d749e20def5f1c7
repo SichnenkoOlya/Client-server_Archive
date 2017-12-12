@@ -1,0 +1,62 @@
+package by.bsuir.server;
+
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import by.bsuir.archive.controller.Controller;
+
+//class clientThread implements Runnable {
+class clientThread extends Thread {
+
+    private ObjectInputStream is = null;
+    private ObjectOutputStream os = null;
+    private SocketStream clientSocket = null;
+    private Controller controller = new Controller();
+ 
+    public clientThread(SocketStream clientSocket) {
+        this.clientSocket = clientSocket;
+    }
+
+    public void run() {
+        try {
+            /*
+             * Create input and output streams for this client.
+             */
+            //is = new DataInputStream(clientSocket.socket.getInputStream());
+            //os = new PrintStream(clientSocket.socket.getOutputStream());
+            
+            is = clientSocket.input;
+            os = clientSocket.output;
+
+            
+            //clientSocket.sendMessage("Welcome!");
+
+            /**
+             * Start client code handling *
+             */
+            while (true) {
+
+            	Message message = clientSocket.receiveMessage();
+            	String line = message.getCommand();
+              //  String line = is.readLine();
+             //   if (line.startsWith("/quit")) {
+             //       break;
+             //   }
+
+            	controller.doAction(line);
+
+
+            }//end-while(true); client handling code
+
+            //clientSocket.sendMessage("Bye");
+
+        } 
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }	
+
+}	

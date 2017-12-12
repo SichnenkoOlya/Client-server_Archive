@@ -1,0 +1,135 @@
+package by.bsuir.archive.parser;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+import by.bsuir.archive.domain.Matter;
+
+public class Document {
+	private Node rootNode;
+	private List<Namespace> namespaceList;
+
+	public Node getRootNode() {
+
+		return rootNode;
+	}
+
+	public void setRootNode(Node rootNode) {
+
+		this.rootNode = rootNode;
+	}
+
+	public boolean namespacePrefixExists(String prefix) {
+
+		Iterator<Namespace> it = namespaceList.listIterator();
+
+		while (it.hasNext()) {
+
+			Namespace namespace = it.next();
+			if (prefix.equals(namespace.getPrefix())) {
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+
+
+	/**
+	 * public Namespace getNamespace(String prefix) Returns the Namespace object
+	 * that belongs to the list of Namespaces of the Document object, provided that
+	 * the given prefix belongs to that Namespace.
+	 *
+	 * @return Namespace if prefix found else null
+	 */
+	public Namespace getNamespace(String prefix) {
+
+		Iterator<Namespace> it = namespaceList.listIterator();
+
+		while (it.hasNext()) {
+
+			Namespace namespace = it.next();
+			if (prefix.equals(namespace.getPrefix())) {
+
+				return namespace;
+			}
+		}
+
+		return null; // Return NULL if prefix doesn't exist at none namespace.
+	}
+
+	public ArrayList<Matter> toArrayList(String identStr) {
+
+		ArrayList<Matter> listOfMatters = new ArrayList<Matter>();
+		int depth = 0;
+		Node nd = rootNode;
+		Node currentParent = rootNode;
+
+        Matter matter = new Matter();
+		while (true) {
+			currentParent = nd;
+			nd = nd.getNextChild();
+			while (nd == null) {
+
+				if (currentParent.getChildren() != null) {
+
+					String depthStr = "";
+					int currDepth = depth;
+
+					while (currDepth > 0) {
+
+						depthStr = depthStr + identStr;
+						currDepth--;
+					}
+					List<Attribute> listAttr = currentParent.getAttributes();
+					String str;
+					for (Attribute attr : listAttr) {
+						switch (attr.getValue()) {
+						case "ageOfStudent":
+							str=currentParent.getFirstChild().getText();
+							matter.setAgeOfStudent(Integer.parseInt(str));
+							break;
+						case "id":
+							str=currentParent.getFirstChild().getText();
+							matter.setId((Integer.parseInt(str)));
+							break;
+						case "nameOfStudent":
+							str=currentParent.getFirstChild().getText();
+							matter.setNameOfStudent(str);
+							break;
+						case "numberOfGroup":
+							str=currentParent.getFirstChild().getText();
+							matter.setNumberOfGroup((Integer.parseInt(str)));
+							listOfMatters.add(matter);
+							matter= new Matter();
+							break;
+						case "university":
+							str=currentParent.getFirstChild().getText();
+							matter.setUniversity(str);
+							break;
+						case "surname":
+							str=currentParent.getFirstChild().getText();
+							matter.setSurname(str);
+							break;
+						}
+					}
+				}
+
+				if (currentParent.getParent() == null) {
+
+					return listOfMatters;
+				}
+				depth--;
+				nd = currentParent.getParent();
+				nd = nd.getNextChild();
+				currentParent = currentParent.getParent();
+			}
+			depth++;
+		}
+	}
+
+}

@@ -1,0 +1,11 @@
+package by.bsuir.archive.service.impl;
+
+import by.bsuir.archive.dao.DAOFactory;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.service.BookService;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public class BookServiceImpl implements BookService {
+
+
+}

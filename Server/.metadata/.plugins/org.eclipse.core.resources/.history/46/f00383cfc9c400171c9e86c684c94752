@@ -1,0 +1,126 @@
+package by.bsuir.archive.parser;
+
+import java.util.*;
+import java.net.*;
+import java.io.*;
+import java.lang.*;
+import java.util.regex.*;
+
+public class DocumentBuilder {
+
+	/**
+	 * public DocumentBuilder()
+	 * Create an empty DocumentBuilder object
+	 */
+	public DocumentBuilder ( ) {
+
+	}
+
+	/** 
+	 * public String getDocumentAsString(String location)
+	 * This method reads a text file from the given location and returns 
+	 * its contents as a String. The location can be either a filesystem
+	 * path or a URL
+	 * 
+	 * @param location - The location of the file to read from. Location can be 
+	 * either a filesystem path(i.e. /home/user/documents/rss.xml) or a 
+	 * network URL(i.e. http://feeds.bbci.co.uk/news/rss/xml).
+	 * 
+	 * @return The contents of the XML file in a String. String containing the 
+	 * contents of the actual text file
+	 */
+	public String getDocumentAsString ( String location ) {
+	 	
+	 	Pattern fileP = Pattern.compile( "http://" );
+		Matcher fileM = fileP.matcher( location );
+
+		if ( fileM.find() ){
+
+			try {
+
+				URL loc = new URL( location );
+				BufferedReader in = new BufferedReader ( new InputStreamReader ( loc.openStream() ) );
+				String inputLine;
+				StringBuffer strDocument = new StringBuffer();
+
+				while (( inputLine = in.readLine() ) != null ) {
+
+					strDocument.append( inputLine );
+				}
+
+				in.close();
+				return strDocument.toString();
+			}catch ( MalformedURLException ex ) {
+
+				System.out.println( "the specified URL was not found at " + location );
+				return "";
+			}catch ( IOException ex ) {
+
+				System.out.println( "IOException occured while reading from file " + location );
+				return "";
+			}
+		}else {
+
+		 	try {
+
+		      File file = new File ( location );
+		      FileReader fReader = new FileReader( file );
+		      BufferedReader in = new BufferedReader( fReader );
+		      String inputLine;
+		      StringBuffer strDocument = new StringBuffer();
+
+		      while ( ( inputLine = in.readLine() ) != null ) {
+		        
+		        strDocument.append( inputLine );
+		      }
+
+		      fReader.close();
+		      return strDocument.toString();
+		    }catch( FileNotFoundException ex ) {
+		     
+		      System.out.println( "The specified file was not found at "+ location );
+		      return "";
+		    }catch( IOException ex ) {
+		      
+		      System.out.println( "IOException occured while reading from file "+ location );
+		    }
+		}
+
+	    return "Nothing to return..";
+	}
+
+	 /** 
+	  * public Document getDocument(String location)
+	  * Reads a file or URL located at location and returns an Document 
+	  * object. Parameter location can be either a filesystem path or a
+	  * URL.
+	  * 
+	  * @param location - The location of the file to read from. Location can be 
+	  * either a filesystem path(i.e. /home/user/documents/rss.xml) or a 
+	  * network URL(i.e. http://feeds.bbci.co.uk/news/rss/xml).
+	  *  
+	  * @return The actual XML file
+	  */
+	public Document getDocument ( String location ) {
+	 	
+	 	String documentAsString = getDocumentAsString ( location );
+	 	return parseDocument( documentAsString );
+	 }
+
+	
+	  
+	private List<Attribute> parseNodeAttributes( String str ) {
+	    
+	    Pattern attrP = Pattern.compile( " ([a-zA-z_]+)=\"([\\p{Alnum}\\p{Punct}]+)\"" );
+	    Matcher attrM = attrP.matcher( str );
+	    List<Attribute> attrs = new LinkedList<Attribute>();
+
+	    while( attrM.find() ) {
+
+	    	attrs.add( new Attribute ( attrM.group(1), attrM.group(2) ) );
+	    }
+
+	    return attrs;
+	}
+
+}

@@ -1,0 +1,5 @@
+package by.bsuir.archive.service;
+
+public class ConnectionService {
+
+}

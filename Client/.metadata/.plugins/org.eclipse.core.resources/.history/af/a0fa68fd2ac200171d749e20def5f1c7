@@ -1,0 +1,34 @@
+package by.bsuir.lab01.controller.command.impl;
+
+import by.bsuir.archive.controller.command.Command;
+import by.bsuir.archive.domain.Book;
+import by.bsuir.archive.service.BookService;
+import by.bsuir.archive.service.ServiceFactory;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public class AddBookCommand implements Command{
+
+	@Override
+	public String execute(String request) {
+	    
+		ServiceFactory serviceFactory = ServiceFactory.getInstance();
+		
+		BookService service = serviceFactory.getBookService();
+		
+		Book book = new Book();
+		// set book params from reqquest
+		
+		String response = null;
+		
+		try {
+			service.addBook(book);
+			response = "book w a s";
+		} catch (ServiceException e) {
+			// logging
+			response = "error";
+		}
+		
+		return response;
+	}
+
+}

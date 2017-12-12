@@ -1,0 +1,5 @@
+package by.bsuir.server.parser;
+
+public class Document {
+
+}

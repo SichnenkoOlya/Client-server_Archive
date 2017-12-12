@@ -1,0 +1,23 @@
+package by.bsuir.server.controller;
+
+import by.bsuir.archive.connect.Message;
+import by.bsuir.archive.controller.command.Command;
+import by.bsuir.archive.controller.command.exception.CommandException;
+
+public class Controller {
+	private final CommandProvider provider = new CommandProvider();
+
+	public String doAction(Message request) {
+
+		String response=null;
+		String commandName=request.getCommand();
+		try {
+			Command command = provider.getCommand(commandName);
+			response = command.execute(request);
+		} catch (CommandException e) {
+			System.out.print( "error:"+e.getLocalizedMessage()+"\n");
+		}
+		return response;
+
+	}
+}

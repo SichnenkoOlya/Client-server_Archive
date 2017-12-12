@@ -1,0 +1,34 @@
+package by.bsuir.server.dao.impl;
+
+import java.util.ArrayList;
+
+import by.bsuir.server.dao.DAOMatter;
+import by.bsuir.server.dao.exception.DAOException;
+import by.bsuir.server.domain.Matter;
+
+public class DAOMatterImpl implements DAOMatter {
+	
+	private ArrayList<Matter> listOfMatter= new ArrayList<Matter>();
+	private String fileDBName = "DB_FILE.xml";
+
+	@Override
+	public boolean createMatter(Matter matter) throws DAOException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Matter findMatter(String title) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean changeMatter(int idBook) throws DAOException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
+}

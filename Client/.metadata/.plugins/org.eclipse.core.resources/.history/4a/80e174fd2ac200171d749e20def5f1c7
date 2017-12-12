@@ -1,0 +1,10 @@
+package by.bsuir.lab01.dao;
+
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.User;
+
+public interface UserDAO {
+
+	boolean register(User user) throws DAOException;
+	boolean logination(String login, String password) throws DAOException;
+}

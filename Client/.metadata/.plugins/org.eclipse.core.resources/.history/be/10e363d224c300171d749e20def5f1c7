@@ -1,0 +1,87 @@
+package by.bsuir.archive.dao.impl;
+
+import java.io.IOException;
+
+import by.bsuir.archive.connect.Connection;
+import by.bsuir.archive.dao.DAOMatter;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Matter;
+import by.bsuir.archive.socket.Message;
+import by.bsuir.archive.socket.SocketStream;
+
+
+public class DAOMatterImpl implements DAOMatter {
+ 
+	private Connection connection=null;
+	private SocketStream socket=null;
+	
+	@Override
+	public void createMatter(String surname, String name, int age, String univer, int numberOfGroup)
+			throws DAOException {
+	    connection=Connection.getInstance();
+		connection.Start();
+		socket = connection.getSocket();
+		Matter matter =new Matter(surname,name, age, univer,numberOfGroup);
+		Message message = new Message("CREATE", surname,name, age, univer,numberOfGroup);
+		try {
+			socket.sendMessage(message);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			message=socket.receiveMessage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+
+	@Override
+	public String findMatter(int idMatter) throws DAOException {
+	    connection=Connection.getInstance();
+		connection.Start();
+		socket = connection.getSocket();
+		Message message = new Message("GET");
+		try {
+			socket.sendMessage(message);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		message=null;
+		try {
+			message=socket.receiveMessage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void changeMatter(int idMatter, String newSurname, String newName, int newAge, String newUniver,
+			int newNumberOfGroup) throws DAOException {
+	    connection=Connection.getInstance();
+		connection.Start();
+		socket = connection.getSocket();
+		Matter matter =new Matter(newSurname,newName, newAge, newUniver,newNumberOfGroup,idMatter);
+		Message message = new Message("CHANGE",matter);
+		try {
+			socket.sendMessage(message);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		message=null;
+		try {
+			message=socket.receiveMessage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+
+}

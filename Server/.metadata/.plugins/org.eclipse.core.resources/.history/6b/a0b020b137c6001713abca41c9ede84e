@@ -1,0 +1,8 @@
+package by.bsuir.archive.service.exception;
+
+public class Snippet {
+	public static void main(String[] args) {
+		ServerService
+	}
+}
+

@@ -1,0 +1,44 @@
+package by.bsuir.archive.connect;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.SocketException;
+
+public class Server {
+	private static final Server server = new Server();
+
+	private Server() {
+	}
+
+	public static Server getInstance() {
+		return server;
+	}
+
+	public void Start() {
+		ServerSocket socketListener = null;
+		SocketStream clientSocket = null;
+		try {
+			socketListener = new ServerSocket(3349);
+
+			while (true) {
+				clientSocket = new SocketStream(socketListener.accept());
+				new ClientThread(clientSocket);
+
+			}
+		} catch (SocketException e) {
+			System.err.println("Socket exception");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("I/O exception");
+			e.printStackTrace();
+		} finally {
+			if (socketListener != null)
+				try {
+					socketListener.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+
+	}
+}

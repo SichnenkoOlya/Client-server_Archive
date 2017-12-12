@@ -1,0 +1,42 @@
+package by.bsuir.archive.dao.impl;
+
+import java.io.FileNotFoundException;
+
+import by.bsuir.archive.dao.BookDAO;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Book;
+
+public class FileBookDAO implements BookDAO {
+
+	@Override
+	public boolean addBook(Book book) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Book findBook(String title) throws DAOException {
+
+		Book book = new Book();
+
+		book.setTitle("Java Book");
+
+		if (book == null) {
+			try {
+				throw new FileNotFoundException("file not found");
+			} catch (FileNotFoundException e) {
+
+				throw new DAOException("sp. message", e);
+			}
+		}
+
+		return book;
+	}
+
+	@Override
+	public boolean deleteBook(int idBook) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

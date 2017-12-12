@@ -1,0 +1,29 @@
+package by.bsuir.lab01.controller;
+
+import by.bsuir.lab01.controller.command.Command;
+import by.bsuir.lab01.domain.Book;
+import by.bsuir.lab01.service.BookService;
+import by.bsuir.lab01.service.ServiceFactory;
+import by.bsuir.lab01.service.exception.ServiceException;
+
+public class Controller {
+	
+	private final CommandProvider provader = new CommandProvider();
+	
+	public String doAction(String request) {
+		
+		
+		String commandName;
+		
+		commandName = request.split("|")[0];
+		
+		Command command = provader.getCommand(commandName);
+	
+		String response;
+		
+		response = command.execute(request);
+		
+		return response;
+	}
+
+}

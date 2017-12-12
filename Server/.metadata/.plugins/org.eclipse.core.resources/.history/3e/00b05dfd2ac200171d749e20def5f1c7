@@ -1,0 +1,25 @@
+package by.bsuir.lab01.controller;
+
+import by.bsuir.archive.controller.command.Command;
+
+public class Controller {
+	
+	private final CommandProvider provader = new CommandProvider();
+	
+	public String doAction(String request) {
+		
+		
+		String commandName;
+		
+		commandName = request.split("|")[0];
+		
+		Command command = provader.getCommand(commandName);
+	
+		String response;
+		
+		response = command.execute(request);
+		
+		return response;
+	}
+
+}

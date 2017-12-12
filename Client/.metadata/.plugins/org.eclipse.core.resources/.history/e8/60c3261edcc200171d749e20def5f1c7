@@ -1,0 +1,27 @@
+package by.bsuir.archive.dao.impl;
+
+import by.bsuir.archive.dao.DAOMatter;
+
+public class DAOMatterImpl implements DAOMatter {
+
+	@Override
+	public boolean createMatter(Matter matter) throws DAOException {
+		
+		
+		
+		return false;
+	}
+
+	@Override
+	public Matter findMatter(String title) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean changeMatter(int idBook) throws DAOException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,57 @@
+package by.bsuir.archive.main;
+
+import by.bsuir.archive.controller.Controller;
+import by.bsuir.archive.view.View;
+
+public class Main {
+	private static Controller controller = new Controller();
+
+	private static View view = new View();
+
+	public static void main(String[] argv) {
+		String response = "";
+		String request = "";
+		boolean isEnd = false;
+		while (!isEnd) {			
+			request = view.command();
+			if (request == "exit") {
+				isEnd = true;
+				view.showGoodBye();
+			} else if (request == "error") {
+				view.showError();
+			} else {
+				response = controller.doAction(request);				
+				if (response == "admin") {
+					Menu(1);
+				} else if (response == "user") {
+					Menu(2);
+				} else {
+					view.showError();
+				}
+			}
+		}
+	}
+	
+	private static void Menu(int accesRights) {
+		String response = "";
+		String request = "";
+		boolean isEnd = false;
+	    controller.doAction("START");
+		while (!isEnd) {
+			if (accesRights == 1) {
+				request = view.adminCommand();
+			} else if (accesRights == 2) {
+				request = view.userCommand();
+			}
+			if (request == "exit") {
+				isEnd = true;
+			} else if (request == "error") {
+				view.showError();
+			} else {
+				response = controller.doAction(request);
+				view.consoleWriteLine(response);
+			}
+		}
+	    controller.doAction("STOP");
+	}
+}

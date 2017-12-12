@@ -1,0 +1,23 @@
+package by.bsuir.server.service;
+
+import by.bsuir.server.service.impl.MatterServiceImpl;
+
+public class ServiceFactory {
+
+	private static final ServiceFactory factory = new ServiceFactory();
+
+	private final MatterService matterService = new MatterServiceImpl();
+
+	public ServiceFactory() {
+	}
+
+	public static ServiceFactory getInstance() {
+		return factory;
+	}
+
+	public MatterService getMatterService() {
+		return matterService;
+	}
+
+
+}

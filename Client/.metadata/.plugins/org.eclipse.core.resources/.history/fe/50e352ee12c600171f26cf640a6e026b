@@ -1,0 +1,11 @@
+package by.bsuir.archive.service.impl;
+
+import by.bsuir.archive.dao.DAOFactory;
+import by.bsuir.archive.dao.DAOMatter;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.service.MatterService;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public class ConnectionClassImpl implements ConnectionService {
+
+}

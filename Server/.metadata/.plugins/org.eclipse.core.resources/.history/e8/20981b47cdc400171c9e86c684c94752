@@ -1,0 +1,38 @@
+package by.bsuir.archive.main;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.SocketException;
+
+import by.bsuir.archive.connect.ClientThread;
+import by.bsuir.archive.connect.SocketStream;
+
+public class Main {
+	public static void main(String[] args) {
+		ServerSocket socketListener = null;
+		SocketStream clientSocket = null;
+		try {
+			socketListener = new ServerSocket(3349);
+
+			while (true) {
+				clientSocket = new SocketStream(socketListener.accept());
+				new ClientThread(clientSocket);
+
+			}
+		} catch (SocketException e) {
+			System.err.println("Socket exception");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("I/O exception");
+			e.printStackTrace();
+		} finally {
+			if (socketListener != null)
+				try {
+					socketListener.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+
+	}
+}

@@ -1,0 +1,13 @@
+package by.bsuir.server.dao;
+
+import by.bsuir.server.dao.exception.DAOException;
+import by.bsuir.server.domain.Matter;
+
+public interface DAOMatter {
+	
+	void createMatter(String surname, String name, int age, String univer, int numberOfGroup) 
+			throws DAOException;	
+	Matter findMatter(int idMatter) throws DAOException;	
+	void changeMatter(int idMatter) throws DAOException;
+    
+}

@@ -1,0 +1,20 @@
+package by.bsuir.server.service.impl;
+
+import by.bsuir.archive.domain.User;
+import by.bsuir.archive.service.UserService;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public void register(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void logination(String login, String password) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

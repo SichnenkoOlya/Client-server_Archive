@@ -1,0 +1,7 @@
+package by.bsuir.archive.service;
+
+public interface MatterService {
+	//boolean addBook(Book book) throws ServiceException;
+	//Book findBook(String title) throws ServiceException;
+	//boolean deleteBook(int idBook) throws ServiceException;
+}

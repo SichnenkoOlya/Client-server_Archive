@@ -1,0 +1,40 @@
+package by.bsuir.server.main;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketException;
+
+
+
+public class Main {
+public static void main(String[] args) {
+	ServerSocket socketListener=null;
+	try {
+                                      //Создаем слушатель
+	    socketListener = new ServerSocket(3333);
+
+		while (true) {
+			Socket client = null;
+			while (client == null) {
+				client = socketListener.accept();
+			}
+			//new ClientThread(client); //Создаем новый поток, которому передаем сокет
+		}
+	} catch (SocketException e) {
+		System.err.println("Socket exception");
+		e.printStackTrace();
+	} catch (IOException e) {
+        System.err.println("I/O exception");  
+		e.printStackTrace();
+	}
+	finally {
+		if (socketListener!=null)
+			try {
+				socketListener.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	}
+}
+}

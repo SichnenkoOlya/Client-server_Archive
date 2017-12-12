@@ -1,0 +1,39 @@
+package by.bsuir.archive.dao.impl;
+
+import by.bsuir.archive.connect.Connection;
+import by.bsuir.archive.dao.DAOMatter;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Matter;
+import by.bsuir.archive.socket.Message;
+import by.bsuir.archive.socket.SocketStream;
+
+
+public class DAOMatterImpl implements DAOMatter {
+
+	@Override
+	public void createMatter(String surname, String name, int age, String univer, int numberOfGroup)
+			throws DAOException {
+		Connection connection=Connection.getInstance();
+		connection.Start();
+		SocketStream socket = connection.getSocket();
+		Matter matter =new Matter(surname,name, age, univer,numberOfGroup);
+		Message message = new Message("CREATE", matter);
+		
+	}
+
+	@Override
+	public Matter findMatter(int idMatter) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeMatter(int idMatter, String newSurname, String newName, int newAge, String newUniver,
+			int newNumberOfGroup) throws DAOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

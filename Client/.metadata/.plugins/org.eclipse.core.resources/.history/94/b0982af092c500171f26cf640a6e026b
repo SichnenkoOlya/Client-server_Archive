@@ -1,0 +1,5 @@
+package by.bsuir.archive.connect.exception;
+
+public class ConnectionException {
+
+}

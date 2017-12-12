@@ -1,0 +1,27 @@
+package by.bsuir.archive.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import by.bsuir.archive.controller.command.Command;
+import by.bsuir.archive.controller.command.impl.Authentication;
+import by.bsuir.archive.controller.command.impl.Registration;
+
+class CommandProvider {
+	private Map<String, Command> commands = new HashMap<>();
+
+	CommandProvider() {
+		commands.put("AUTHENTICATION", new Authentication());
+		commands.put("REGISTRATION", new Registration());
+		//commands.put("CREATE_MATTER", new LoginationCommand());
+	//	commands.put("GET_MATTER", new LoginationCommand());
+		//commands.put("CHANGE_MATTER", new LoginationCommand());
+	}
+
+	Command getCommand(String commandName) {
+		Command command = commands.get(commandName);
+		return command;
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package by.bsuir.archive.service;
+
+import by.bsuir.archive.domain.Book;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public interface BookService {
+	boolean addBook(Book book) throws ServiceException;
+	Book findBook(String title) throws ServiceException;
+	boolean deleteBook(int idBook) throws ServiceException;
+}

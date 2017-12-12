@@ -1,0 +1,8 @@
+package by.bsuir.archive.service.impl;
+
+import by.bsuir.archive.service.MatterService;
+
+public class MatterServiceImpl implements MatterService {
+
+
+}

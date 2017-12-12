@@ -1,0 +1,32 @@
+package by.bsuir.archive.service;
+
+import by.bsuir.archive.dao.BookDAO;
+import by.bsuir.archive.dao.DAOFactory;
+import by.bsuir.archive.dao.UserDAO;
+import by.bsuir.archive.dao.impl.DAOMatterImpl;
+import by.bsuir.archive.dao.impl.DAOUserImpl;
+import by.bsuir.archive.service.impl.BookServiceImpl;
+import by.bsuir.archive.service.impl.UserServiceImpl;
+
+public class ServiceFactory {
+
+	private static final ServiceFactory factory = new ServiceFactory();
+
+	private final BookService bookService = new BookServiceImpl();
+	private final UserService userService = new UserServiceImpl();
+
+	private ServiceFactory() {
+	}
+
+	public static ServiceFactory getInstance() {
+		return factory;
+	}
+
+	public BookService getBookService() {
+		return bookService;
+	}
+
+	public UserService getUserService() {
+		return userService;
+	}
+}

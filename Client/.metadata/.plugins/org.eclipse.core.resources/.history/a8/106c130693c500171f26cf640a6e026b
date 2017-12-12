@@ -1,0 +1,42 @@
+package by.bsuir.archive.connect;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import by.bsuir.archive.connect.socket.SocketStream;
+import by.bsuir.archive.connect.socket.exception.SocketStreamException;
+
+public class Connection {
+
+	private static final Connection connection = new Connection();
+	private SocketStream socket = null;
+	private final String HOSTNAME = "localhost";
+	private final int PORT_NUMBER = 3351;
+
+	public static Connection getInstance() {
+
+		return connection;
+	}
+
+	public SocketStream getSocket() {
+		return socket;
+	}
+
+	public void setSocket(SocketStream socket) {
+		this.socket = socket;
+	}
+
+	public void Start() {
+
+		try {
+			if (socket == null) {
+
+				socket = new SocketStream(InetAddress.getByName(HOSTNAME), PORT_NUMBER);
+			}
+		} catch (UnknownHostException | SocketStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

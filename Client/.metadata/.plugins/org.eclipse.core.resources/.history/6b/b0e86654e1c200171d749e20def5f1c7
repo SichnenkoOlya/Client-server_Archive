@@ -1,0 +1,54 @@
+package by.bsuir.archive.connect;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+import org.omg.CORBA.portable.InputStream;
+import org.omg.CORBA.portable.OutputStream;
+
+public class Server {
+
+	public Server(){
+		
+	}
+	public void Start(){
+        try {  
+        Socket client = new Socket("localhost", 3456);  
+            try {  
+                //Создаем выходной поток клиента  
+                java.io.OutputStream outStream = client.getOutputStream();  
+                PrintWriter out = new PrintWriter(outStream, true);   
+                System.out.print("Type in the URL: ");  
+                Scanner in = new Scanner(System.in); // для ввода URL с клавы  
+                String theURL = in.nextLine(); // Строка содержащая введенный URL  
+                out.println(theURL);  
+                  
+                //Создаем входной поток клиента  
+                java.io.InputStream inStream = client.getInputStream();  
+                BufferedReader inputLine = new BufferedReader(new InputStreamReader(inStream));  
+                System.out.println("-------- The Content of " + theURL + "--------");  
+                String c = inputLine.readLine(); // Получаем строку с входного потока  
+                //Цикл для вывода html-содержимого запрошенной страницы  
+                while(c!=null) {  
+                    System.out.println(c);  
+                    c = inputLine.readLine();  
+                }  
+                System.out.println("-------- The END --------");  
+            }  
+            finally {  
+                client.close();  
+            }  
+        }  
+        catch (UnknownHostException e) {  
+        e.printStackTrace();  
+        }   
+        catch (IOException e) {  
+        e.printStackTrace();  
+        }
+	}
+}

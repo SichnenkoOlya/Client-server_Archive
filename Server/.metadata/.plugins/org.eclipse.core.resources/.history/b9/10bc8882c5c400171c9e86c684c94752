@@ -1,0 +1,56 @@
+package by.bsuir.server.service.impl;
+
+import by.bsuir.server.dao.DAOFactory;
+import by.bsuir.server.dao.DAOMatter;
+import by.bsuir.server.dao.exception.DAOException;
+import by.bsuir.server.domain.Matter;
+import by.bsuir.server.service.MatterService;
+import by.bsuir.server.service.exception.ServiceException;
+
+public class MatterServiceImpl implements MatterService {
+
+	@Override
+	public void createMatter(String surname, String name, int age, String univer, int numberOfGroup)
+			throws ServiceException {
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		DAOMatter matterDAO = daoFactory.getMatterDAO();
+
+		try {
+		    matterDAO.createMatter(surname, name, age, univer, numberOfGroup);
+		    
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
+	}
+
+	@Override
+	public String findMatter(int idMatter) throws ServiceException {
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		DAOMatter matterDAO = daoFactory.getMatterDAO();
+
+		try {
+		   Matter matter= matterDAO.findMatter(idMatter);
+           return matter.toString();
+		    
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
+	}
+
+	@Override
+	public void changeMatter(int idMatter, String newSurname, String newName, int newAge, String newUniver,
+			int newNumberOfGroup) throws ServiceException {
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		DAOMatter matterDAO = daoFactory.getMatterDAO();
+
+		try {
+		    matterDAO.changeMatter(idMatter, newSurname, newName, newAge, newUniver, newNumberOfGroup);
+		    
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
+		
+	}
+
+
+}

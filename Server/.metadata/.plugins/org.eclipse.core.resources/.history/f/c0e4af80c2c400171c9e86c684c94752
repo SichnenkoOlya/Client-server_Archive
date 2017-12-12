@@ -1,0 +1,10 @@
+package by.bsuir.server.controller.command;
+
+import by.bsuir.Message;
+import by.bsuir.server.controller.command.exception.CommandException;
+
+public interface Command {
+
+	String execute(Message request) throws CommandException;
+}
+

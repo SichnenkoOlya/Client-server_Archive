@@ -1,0 +1,13 @@
+package by.bsuir.archive.dao.impl;
+
+import java.io.FileNotFoundException;
+
+import by.bsuir.archive.dao.BookDAO;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Book;
+
+public class DAOMatterImpl implements DAOMatter {
+
+	
+
+}

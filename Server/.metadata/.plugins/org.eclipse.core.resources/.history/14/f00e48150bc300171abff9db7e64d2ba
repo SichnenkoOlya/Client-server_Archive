@@ -1,0 +1,5 @@
+package by.bsuir.server.main;
+
+public class ClientThread {
+
+}

@@ -1,0 +1,63 @@
+package by.bsuir.server.main;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketException;
+
+import by.bsuir.server.SocketStream;
+import by.bsuir.server.parser.Document;
+import by.bsuir.server.parser.DocumentBuilder;
+
+
+
+public class Main {
+public static void main(String[] args) {
+	/*ServerSocket socketListener=null;
+    SocketStream clientSocket = null;
+    ClientThread thread=null;
+	try {
+                                      //Создаем слушатель
+	    socketListener = new ServerSocket(3343);
+
+		while (true) {
+			Socket client = null;
+		    clientSocket = new SocketStream(socketListener.accept());
+			//while (client == null) {
+				//client = socketListener.accept();
+			//}
+			new ClientThread(clientSocket);
+			
+	} 
+	}catch (SocketException e) {
+		System.err.println("Socket exception");
+		e.printStackTrace();
+	} catch (IOException e) {
+        System.err.println("I/O exception");  
+		e.printStackTrace();
+	}
+	finally {
+		if (socketListener!=null)
+			try {
+				socketListener.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	}*/
+        String str="<?xml version=\"1.0\"?>\r\n" + 
+        		"<catalog>\r\n" + 
+        		"   <book id=\"bk101\">\r\n" + 
+        		"      <author>Gambardella, Matthew</author>\r\n" + 
+        		"      <title>XML Developer's Guide</title>\r\n" + 
+        		"      <genre>Computer</genre>\r\n" + 
+        		"      <price>44.95</price>\r\n" + 
+        		"      <publish_date>2000-10-01</publish_date>\r\n" + 
+        		"      <description>An in-depth look at creating applications \r\n" + 
+        		"      with XML.</description>\r\n" + 
+        		"   </book>\r\n" +  
+        		"</catalog>";	
+	    DocumentBuilder docBuilder = new DocumentBuilder( );
+	    Document doc = docBuilder.getDocument( args[0] );
+	    System.out.println( doc.toXMLString( "  " ) );
+}
+}

@@ -1,0 +1,230 @@
+package by.bsuir.archive.view;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class View {
+	private static Scanner in = new Scanner(System.in);
+
+	public void consoleLog(String response) {
+
+		System.out.print(response);
+
+	}
+
+	private String enterName() {
+
+		System.out.print("Введите логин:\n");
+		return in.next();
+
+	}
+
+	private String enteringPassword() {
+
+		System.out.print("Введите пароль:\n");
+		return in.next();
+
+	}
+		
+	private String enteringTitleBook() {
+		
+		System.out.print("Введите название книги.\n");
+		return in.next();
+		
+	}
+	
+	private String enteringTypeBook() {
+		
+		System.out.print("Выберите тип книги! 1-Электронный; 2-Бумажный\n");
+		String answer = in.next();
+		String result = "";
+		switch (answer) {
+		case "1":
+			result = "ELECTRONIC";
+			break;
+		case "2":
+			result = "PAPER";
+			break;
+		default:
+			System.out.print("Вы ввели некорректные данные!\n");
+			break;
+		}
+		
+		return result;
+	}
+	
+	private String enteringDescriptionBook() {
+		
+		System.out.print("Введите описание для книги.\n");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String result ="";
+		try {
+			result = br.readLine();
+		} catch (IOException e) {
+			System.out.print(e.getLocalizedMessage());
+		}
+		
+		return result;
+		
+	}
+
+	public String enteringChoise() {
+
+		System.out.print("Введите действие: 1 - аунтефикация 2 - регистристрация 0 - выход.\n");
+		return in.next();
+
+	}
+
+	public void showGoodBye() {
+		
+		System.out.print("До сокрой встречи!\n");
+		
+	}
+	
+	public void showError() {
+		
+		System.out.print("Вы ввели неверное число! Введите ещё раз!\n");
+	
+	}
+	
+	public String enteringChoiseAdmin() {
+		
+		System.out.print("Введите действие: 1 - добавить книгу 2 - удалить книгу 3 - получить список книг 4 - найти книгу 5 - добавить описание книги 0 - выход\n");
+		return in.next();
+	
+	}
+	
+	public String enteringChoiseUser() {
+		
+		System.out.print("Введите действие: 1 - добавить книгу 2 - получить список книг 3 - найти книгу 0 - выход\n");
+		return in.next();
+		
+	}
+	
+	private String requestAddBook() {
+		String title = enteringTitleBook();
+		String type = enteringTypeBook();
+		return "add_book" + "|" + title + "|" + type;
+	}
+	
+	private String requestDeleteBook() {
+		String title = enteringTitleBook();
+		String type = enteringTypeBook();
+		return "delete_book" + "|" + title + "|" + type;
+	}
+	
+	private String requestSearchBook() {
+		String title = enteringTitleBook();
+		String type = enteringTypeBook();
+		return "search_book" + "|" + title + "|" + type;
+	}
+	
+	private String requestAddDescriptionBook() {
+		String title = enteringTitleBook();
+		String type = enteringTypeBook();
+		String description = enteringDescriptionBook();
+		return "add_description_book" + "|" + title + "|" + type + "|" + description;
+	}
+	
+	private String requestLogination() {
+		String name = enterName();
+		String password = enteringPassword();
+		return "loginatgion" + "|" + name + "|" + password;
+	}
+	
+	public String requestRegistration() {
+		String name = enterName();
+		String password = enteringPassword();
+		return "registration" + "|" + name + "|" + password + "|";
+	}
+	
+	public String userCommand() {
+		String i = this.enteringChoiseUser();
+		String request = "";
+		switch (i) {
+		case "1": {
+			request = this.requestAddBook();
+		}
+			break;
+		case "2": {
+			request = "get_list_of_book";
+		}
+			break;
+		case "3": {
+			request = this.requestSearchBook();
+		}
+			break;
+		case "0": {
+			request = "exit";
+		}
+			break;
+		default: {
+			request = "error";
+		}
+			break;
+		}
+		return request;
+	}
+	
+	public String adminCommand() {
+		String i = this.enteringChoiseAdmin();
+		String request = "";
+		switch (i) {
+		case "1": {
+			request = this.requestAddBook();
+		}
+			break;
+		case "2": {
+			request = this.requestDeleteBook();
+		}
+			break;
+		case "3": {
+			request = "get_list_of_book";
+		}
+			break;
+		case "4": {
+			request = this.requestSearchBook();
+		}
+			break;
+		case "5": {
+			request = this.requestAddDescriptionBook();
+		}
+			break;
+		case "0": {
+			request = "exit";
+		}
+			break;
+		default: {
+			request = "error";
+		}
+			break;
+		}
+		return request;
+	}
+	
+	public String command() {
+		String i = this.enteringChoise();
+		String request = "";
+		switch (i) {
+		case "1": {
+			request = this.requestLogination();
+		}
+			break;
+		case "2": {
+			request = this.requestRegistration();
+		}
+			break;
+		case "0": {
+			request = "exit";
+		}
+			break;
+		default: {
+			request = "error";
+		}
+			break;
+		}
+		return request;
+	}
+}

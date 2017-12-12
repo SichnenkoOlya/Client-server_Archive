@@ -1,0 +1,5 @@
+package by.bsuir.archive.domain;
+
+public class User {
+
+}

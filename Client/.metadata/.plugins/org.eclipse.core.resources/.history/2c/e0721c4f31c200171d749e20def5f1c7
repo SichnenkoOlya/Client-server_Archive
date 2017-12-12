@@ -1,0 +1,8 @@
+package by.bsuir.archive.dao.impl;
+
+import by.bsuir.archive.domain.User;
+
+public class DAOUserImpl implements DAOUser {
+
+
+}

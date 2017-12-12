@@ -1,0 +1,38 @@
+package by.bsuir.server;
+
+import java.io.Serializable;
+
+import by.bsuir.server.domain.Matter;
+
+public class Message implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private String command;
+	private Matter matter=null;
+    
+    // онструктор, которым будет пользоватьс€ клиент
+    public Message(String command){
+         this.setCommand(command);   
+    }
+    
+    public Message(String command, Matter matter){
+        this.setCommand(command);   
+        this.setMatter(matter);
+   }
+    
+	public String getCommand() {
+		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
+	}
+
+	public Matter getMatter() {
+		return matter;
+	}
+
+	public void setMatter(Matter matter) {
+		this.matter = matter;
+	}
+}

@@ -1,0 +1,208 @@
+package by.bsuir.archive.view;
+
+import java.util.Scanner;
+
+public class View {
+	private static Scanner in = new Scanner(System.in);
+
+	public void consoleLog(String response) {
+
+		System.out.print(response);
+
+	}
+
+	private String enterName() {
+
+		System.out.print("Введите логин:\n");
+		return in.next();
+
+	}
+
+	private String enteringPassword() {
+
+		System.out.print("Введите пароль:\n");
+		return in.next();
+
+	}
+		
+	private String enterIdMatter() {
+		System.out.print("Введите номер дела:\n");
+		return in.next();	
+	}
+	
+	private String enterNameStudent() {
+		System.out.print("Введите имя студента:\n");
+		return in.next();	
+	}
+	
+	private String enterSurnameStudent() {
+		System.out.print("Введите фамилию студента:\n");
+		return in.next();	
+	}
+	
+	private String enterAgeStudent() {
+		System.out.print("Введите возраст студента:\n");
+		return in.next();	
+	}
+	
+	private String enterUniverStudent() {
+		System.out.print("Введите название университета ,в котором обучается студент:\n");
+		return in.next();	
+	}
+	
+	private String enterGroupOfStudent() {
+		System.out.print("Введите номер группы студента:\n");
+		return in.next();	
+	}
+
+	
+	public String enteringChoise() {
+
+		System.out.print("Введите действие: 1 - аунтефикация 2 - регистристрация 0 - выход.\n");
+		return in.next();
+
+	}
+
+	public void showGoodBye() {
+		
+		System.out.print("До свидания!\n");
+		
+	}
+	
+	public void showError() {
+		
+		System.out.print("Вы ввели неверное число! Повторите ещё раз!\n");
+	
+	}
+	
+	public String enteringChoiseAdmin() {
+		
+		System.out.print("Введите действие: 1 - Добавить дело; 2 - Изменить дело; 3 - Найти дело; 0 - Выход\n");
+		return in.next();
+	
+	}
+	
+	public String enteringChoiseUser() {
+		
+		System.out.print("Введите действие: 1 - Найти дело; 0 - Выход\n");
+		return in.next();
+		
+	}
+	
+	private String requestCreateMatter() {
+		String name=enterNameStudent();
+		//String surname;
+		//int age;
+		//String university;
+	   // int numberOfGroup;
+		//String title = enteringTitleBook();
+		//String type = enteringTypeBook();
+		return "CREATE_MATTER" + "|" + name;
+	}
+		
+	private String requestLogination() {
+		String name = enterName();
+		String password = enteringPassword();
+		return "AUTHENTICATION" + "|" + name + "|" + password;
+	}
+	
+	private String requestIsAdmin() {
+		String name = enterName();
+		String password = enteringPassword();
+		return "IS_ADMIN" + "|" + name + "|" + password;
+	}
+	
+	public String requestRegistration() {
+		String name = enterName();
+		String password = enteringPassword();
+		return "REGISTRATION" + "|" + name + "|" + password;
+	}
+	
+	public String userCommand() {
+		String i = this.enteringChoiseUser();
+		String request = "";
+		switch (i) {
+		case "1": {
+			request = this.requestCreateMatter();
+		}
+			break;
+		case "2": {
+			//request = "get_list_of_book";
+		}
+			break;
+		case "3": {
+			//request = this.requestSearchBook();
+		}
+			break;
+		case "0": {
+			request = "exit";
+		}
+			break;
+		default: {
+			request = "error";
+		}
+			break;
+		}
+		return request;
+	}
+	
+	public String adminCommand() {
+		String i = this.enteringChoiseAdmin();
+		String request = "";
+		switch (i) {
+		case "1": {
+			request = this.requestCreateMatter();
+		}
+			break;
+		case "2": {
+			//request = this.requestDeleteBook();
+		}
+			break;
+		case "3": {
+			//request = "get_list_of_book";
+		}
+			break;
+		case "4": {
+			//request = this.requestSearchBook();
+		}
+			break;
+		case "5": {
+			//request = this.requestAddDescriptionBook();
+		}
+			break;
+		case "0": {
+			request = "exit";
+		}
+			break;
+		default: {
+			request = "error";
+		}
+			break;
+		}
+		return request;
+	}
+	
+	public String command() {
+		String i = this.enteringChoise();
+		String request = "";
+		switch (i) {
+		case "1": {
+			request = this.requestLogination();
+		}
+			break;
+		case "2": {
+			request = this.requestRegistration();
+		}
+			break;
+		case "0": {
+			request = "exit";
+		}
+			break;
+		default: {
+			request = "error";
+		}
+			break;
+		}
+		return request;
+	}
+}

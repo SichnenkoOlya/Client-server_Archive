@@ -1,0 +1,23 @@
+package by.bsuir.server.dao;
+
+import by.bsuir.server.dao.impl.DAOMatterImpl;
+
+public class DAOFactory {
+
+	private static final DAOFactory factory = new DAOFactory();
+
+	private final DAOMatter matterDAO = new DAOMatterImpl();
+
+	private DAOFactory() {
+	}
+
+	public static DAOFactory getInstance() {
+		return factory;
+	}
+
+	public DAOMatter getBMatterDAO() {
+		return matterDAO;
+	}
+
+
+}

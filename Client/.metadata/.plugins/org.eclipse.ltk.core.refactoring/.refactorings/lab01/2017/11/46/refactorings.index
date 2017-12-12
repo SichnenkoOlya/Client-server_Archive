@@ -1,0 +1,48 @@
+1509954983978	Encapsulate field 'numberOfGroup'
+1509956194971	Encapsulate field 'surname'
+1509956263688	Encapsulate field 'numberOfGroup'
+1509960421016	Copy package
+1509960433673	Rename package 'by.bsuir.server.controller.copy'
+1509960460396	Copy package
+1509960598189	Copy package
+1509960613192	Copy package
+1509961126810	Rename type 'LoginationCommand'
+1509961142889	Rename type 'FindBookCommand'
+1509961302912	Delete element
+1509961328549	Copy package
+1509961363110	Delete element
+1509961370022	Rename package 'by.bsuir.server.service.copy'
+1509961385354	Copy package
+1509961396013	Copy package
+1509961425621	Rename package 'by.bsuir.server.service.exception.copy'
+1509961431745	Rename package 'by.bsuir.server.service.impl.copy'
+1509961475562	Rename compilation unit 'BookService.java'
+1509961494869	Delete element
+1509961512749	Rename compilation unit 'BookServiceImpl.java'
+1509962869578	Delete element
+1509963212329	Rename compilation unit 'BookService.java'
+1509963236092	Rename type 'BookServiceImpl'
+1509965138154	Encapsulate field 'matter'
+1509965869830	Rename type 'Server'
+1509967432190	Encapsulate field 'socket'
+1509968114471	Delete element
+1509976520832	Encapsulate field 'name'
+1509976524338	Encapsulate field 'surname'
+1509976536788	Encapsulate field 'university'
+1509976542902	Encapsulate field 'age'
+1509976553925	Encapsulate field 'numberOfGroup'
+1509976557198	Encapsulate field 'id'
+1509977160856	Encapsulate field 'answer'
+1509979540751	Delete element
+1509982344118	Delete element
+1509995147389	Move compilation unit
+1509995174299	Delete element
+1510052393920	Delete element
+1510171706865	Copy package
+1510171716655	Delete element
+1510171765036	Move compilation unit
+1510255783110	Delete element
+1510317027327	Rename compilation unit 'ConnectionClassImpl.java'
+1510334123040	Rename package 'by.bsuir.archive.view'
+1510334323399	Rename package 'by.bsuir.archive.view.console'
+1510334346650	Rename type 'View'

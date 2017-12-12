@@ -1,0 +1,25 @@
+package by.bsuir.archive.dao;
+
+public class DAOFactory {
+
+	private static final DAOFactory factory = new DAOFactory();
+
+	private final DAOUser userDAO = new DAOMatterImpl();
+	private final DAOMatter matterDAO = new DAOMatterImpl();
+
+	private DAOFactory() {
+	}
+
+	public static DAOFactory getInstance() {
+		return factory;
+	}
+
+	public DAOMatter getBookDAO() {
+		return bookDAO;
+	}
+
+	public DAOUser getUserDAO() {
+		return userDAO;
+	}
+
+}

@@ -1,0 +1,40 @@
+package by.bsuir.server.main;
+
+import java.io.IOException;
+
+import by.bsuir.Message;
+import by.bsuir.server.SocketStream;
+import by.bsuir.server.controller.Controller;
+
+class ClientThread extends Thread {
+
+    private SocketStream clientSocket = null;
+    private Controller controller = new Controller();
+ 
+    public ClientThread(SocketStream clientSocket) {
+        this.clientSocket = clientSocket;
+        this.start();
+    }
+
+    public void run() {
+        try {
+            
+            while (true) {
+
+            	Message message = clientSocket.receiveMessage();
+                if (message.getCommand().equals("BYE")) {
+                    break;
+                }
+
+            	String response=controller.doAction(message);
+            	message=new Message("ANSWER");
+            	message.setAnswer(response);
+            	clientSocket.sendMessage(message);
+
+            }
+        } 
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }	
+}	

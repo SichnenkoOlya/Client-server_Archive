@@ -1,0 +1,33 @@
+package by.bsuir.archive.serialization;
+
+import java.beans.XMLEncoder;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import java.util.ArrayList;
+
+import by.bsuir.archive.domain.Matter;
+import by.bsuir.archive.parser.Document;
+import by.bsuir.archive.parser.DocumentBuilder;
+
+public class Serialization {
+	private static final String ARCHIVE_NAME = "ARCHIVE.xml";
+	private static DocumentBuilder docBuilder = new DocumentBuilder();
+	private static Document doc = docBuilder.getDocument(ARCHIVE_NAME);
+	
+	
+	public static void serialize(ArrayList<Matter> itemList) {
+		XMLEncoder e;
+		try {
+			e = new XMLEncoder(new FileOutputStream(ARCHIVE_NAME));
+			e.writeObject(itemList);
+			e.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	public static ArrayList<Matter> deserialize() {
+		return doc.toArrayList();	
+	}
+}

@@ -1,0 +1,14 @@
+package by.bsuir.lab01.dao;
+
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Book;
+
+public interface BookDAO {
+	
+	boolean addBook(Book book) throws DAOException;
+	
+	Book findBook(String title) throws DAOException;
+	
+	boolean deleteBook(int idBook) throws DAOException;
+
+}

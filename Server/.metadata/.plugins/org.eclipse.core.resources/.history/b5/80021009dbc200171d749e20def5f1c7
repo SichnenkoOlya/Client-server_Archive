@@ -1,0 +1,22 @@
+package by.bsuir.archive.service.impl;
+
+import by.bsuir.archive.domain.User;
+import by.bsuir.archive.service.UserService;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public int authenticate(String login, String password) throws ServiceException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void register(String login, String password, String email) throws ServiceException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

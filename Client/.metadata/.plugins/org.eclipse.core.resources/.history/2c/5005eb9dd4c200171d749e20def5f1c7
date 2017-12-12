@@ -1,0 +1,33 @@
+package by.bsuir.server;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Time;
+
+public class Message implements Serializable {
+
+    private String command;;
+    
+    // онструктор, которым будет пользоватьс€ клиент
+    public Message(String command){
+         this.setCommand(command);
+    }
+
+	public String getCommand() {
+		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
+	}
+
+    // онструктор, которым будет пользоватьс€ сервер
+   /* public Message(String login, String message, String[] users){
+        this.login = login;
+        this.message = message;
+        this.time = java.util.Calendar.getInstance().getTime();
+        this.users = users;
+    }*/
+
+
+}

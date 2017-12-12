@@ -1,0 +1,12 @@
+package by.bsuir.server.dao;
+
+import by.bsuir.server.dao.exception.DAOException;
+import by.bsuir.server.domain.Matter;
+
+public interface DAOMatter {
+	
+	boolean createMatter(Matter matter) throws DAOException;	
+	Matter findMatter(String title) throws DAOException;	
+	boolean changeMatter(int idBook) throws DAOException;
+
+}

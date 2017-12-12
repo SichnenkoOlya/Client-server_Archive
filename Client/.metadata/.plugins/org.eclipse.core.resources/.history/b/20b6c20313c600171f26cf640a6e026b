@@ -1,0 +1,11 @@
+package by.bsuir.archive.service;
+
+import by.bsuir.archive.service.exception.ServiceException;
+
+public class ConnectionService {
+
+	public interface MatterService {
+		void start() throws ServiceException;	
+		void close() throws ServiceException;
+	}
+}

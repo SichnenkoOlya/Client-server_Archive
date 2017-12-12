@@ -1,0 +1,21 @@
+package by.bsuir.archive.parser;
+
+import java.lang.Object;
+
+public class Namespace extends Object {
+	private String prefix;
+	private String uri;
+
+	public Namespace ( String prefix, String uri ) {
+		this.prefix = prefix;
+		this.uri = uri;
+	}
+
+	public String getPrefix ( ) {
+		
+		return prefix;
+	}
+
+
+
+}

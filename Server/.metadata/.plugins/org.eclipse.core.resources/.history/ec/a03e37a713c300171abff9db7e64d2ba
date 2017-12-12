@@ -1,0 +1,58 @@
+package by.bsuir.server;
+
+import java.io.*;
+import java.net.*;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+
+public class SocketStream {
+
+    protected Socket socket;
+    protected ObjectInputStream input;
+    protected ObjectOutputStream output;
+
+    SocketStream(InetAddress acceptorHost, int acceptorPort) 
+    		throws SocketException, IOException {
+        socket = new Socket(acceptorHost, acceptorPort);
+        setStreams();
+    }
+
+    public SocketStream(Socket socket) throws IOException {
+        this.socket = socket;
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        setStreams();
+    }
+
+    private void setStreams() throws IOException {
+    	InputStream is=socket.getInputStream();
+    	OutputStream os=socket.getOutputStream();
+        input = new ObjectInputStream(is);
+        output = new ObjectOutputStream(os);
+    }
+
+    public void sendMessage(Message message) throws IOException {
+        output.writeObject(message);
+        output.flush();
+    } // end sendMessage
+
+    public Message receiveMessage() throws IOException {
+        Message message=null;
+		try {
+			message = (Message) input.readObject();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return message;
+    } // end receiveMessage
+
+    public void close() throws IOException {
+        socket.close();
+    }
+
+} // end class

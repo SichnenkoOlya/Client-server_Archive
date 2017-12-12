@@ -1,0 +1,81 @@
+package by.bsuir.archive.dao.impl;
+
+import java.util.ArrayList;
+
+import by.bsuir.archive.dao.DAOMatter;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Matter;
+import by.bsuir.archive.serialization.Serialization;
+
+public class DAOMatterImpl implements DAOMatter {
+
+	private ArrayList<Matter> listOfMatter;
+
+	private synchronized int getUniqueId() {
+		int maxId = 0;
+		for (Matter element : listOfMatter) {
+			if (element.getId() > maxId) {
+				maxId = element.getId();
+			}
+		}
+		return ++maxId;
+	}
+
+	@Override
+	public synchronized  void createMatter(String surname, String name, int age, String univer, int numberOfGroup)
+			throws DAOException {
+		if (listOfMatter == null) {
+			listOfMatter = new ArrayList<Matter>();
+			listOfMatter = Serialization.deserialize();
+		}
+		int id = getUniqueId();
+		Matter matter = new Matter(surname, name, age, univer, numberOfGroup, id);
+		boolean isInList = false;
+		for (Matter element : listOfMatter) {
+			if (element.getId() == matter.getId()) {
+				isInList = true;
+			}
+		}
+		if (isInList) {
+			throw new DAOException("Не уникальный идентификатор!");
+		}
+		listOfMatter.add(matter);
+		Serialization.serialize(listOfMatter);
+	}
+
+	@Override
+	public synchronized Matter findMatter(int idMatter) throws DAOException {
+		if (listOfMatter == null) {
+			listOfMatter = new ArrayList<Matter>();
+			listOfMatter = Serialization.deserialize();
+		}
+		for (Matter element : listOfMatter) {
+			if (element.getId() == idMatter) {
+				return element;
+			}
+		}
+		throw new DAOException("Нет такого дела!");
+	}
+
+	@Override
+	public synchronized void changeMatter(int idMatter, String newSurname, String newName, int newAge, String newUniver,
+			int newNumberOfGroup) throws DAOException {
+		if (listOfMatter == null) {
+			listOfMatter = new ArrayList<Matter>();
+			listOfMatter = Serialization.deserialize();
+		}
+		for (Matter element : listOfMatter) {
+			if (element.getId() == idMatter) {
+				element.setSurname(newSurname);
+				element.setNameOfStudent(newName);
+				element.setAgeOfStudent(newAge);
+				element.setUniversity(newUniver);
+				element.setNumberOfGroup(newNumberOfGroup);
+				Serialization.serialize(listOfMatter);
+				return;
+			}
+		}
+		throw new DAOException("Нет такого дела!");
+
+	}
+}

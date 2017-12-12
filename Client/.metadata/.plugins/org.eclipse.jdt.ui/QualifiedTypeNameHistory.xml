@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="by.bsuir.archive.controller.command.impl.GetMatter"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.controller.command.impl.ChangeMatter"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.connect.socket.SocketStream"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.connect.socket.exception.SocketStreamException"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.connect.exception.ConnectionException"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.service.impl.ConnectionServiceImpl"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.service.ConnectionService"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.controller.command.impl.StartConnection"/>
+<fullyQualifiedTypeName name="by.bsuir.archive.controller.command.impl.StopConnection"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,92 @@
+package by.bsuir.archive.domain;
+
+
+public class Matter  {
+
+	private String name;
+	private int age;
+	private String university;
+	private int numberOfGroup;
+	private String adress;
+	private int id;
+	
+	public String getNameOfStudent() {
+		return name;
+	}
+	
+	public void setNameOfStudent(String nameOfStudent) {
+		this.name = nameOfStudent;
+	}
+	
+	public int getAgeOfStudent() {
+		return age;
+	}
+	
+	public void setAgeOfStudent(int ageOfStudent) {
+		this.age = ageOfStudent;
+	}
+
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getNumberOfGroup() {
+		return numberOfGroup;
+	}
+
+	public void setNumberOfGroup(int numberOfGroup) {
+		this.numberOfGroup = numberOfGroup;
+	}
+
+	
+	
+	/*   @Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		Book that = (Book) o;
+
+		if (typeBook != that.typeBook) {
+			return false;
+		}
+		return !(name != null ? !name.equals(that.name) : that.name != null);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = name != null ? name.hashCode() : 0;
+		result = 31 * result + 13;
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Book{" + "name='" + name + '\'' + ", typeBook=" + typeBook + '}';
+	}*/
+}

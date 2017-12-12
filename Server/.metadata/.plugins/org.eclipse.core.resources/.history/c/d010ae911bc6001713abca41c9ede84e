@@ -1,0 +1,5 @@
+package by.bsuir.archive.parser.exception;
+
+public class ParserException {
+
+}

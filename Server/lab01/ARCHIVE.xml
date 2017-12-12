@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_144" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="by.bsuir.archive.domain.Matter">
+    <void property="ageOfStudent">
+     <int>25</int>
+    </void>
+    <void property="id">
+     <int>1</int>
+    </void>
+    <void property="nameOfStudent">
+     <string>Alex</string>
+    </void>
+    <void property="numberOfGroup">
+     <int>551003</int>
+    </void>
+    <void property="surname">
+     <string>Petrov</string>
+    </void>
+    <void property="university">
+     <string>BSUIR</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.bsuir.archive.domain.Matter">
+    <void property="ageOfStudent">
+     <int>34</int>
+    </void>
+    <void property="id">
+     <int>2</int>
+    </void>
+    <void property="nameOfStudent">
+     <string>Anna</string>
+    </void>
+    <void property="numberOfGroup">
+     <int>551003</int>
+    </void>
+    <void property="surname">
+     <string>Ivanova</string>
+    </void>
+    <void property="university">
+     <string>BSU</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.bsuir.archive.domain.Matter">
+    <void property="ageOfStudent">
+     <int>23</int>
+    </void>
+    <void property="id">
+     <int>3</int>
+    </void>
+    <void property="nameOfStudent">
+     <string>Kate</string>
+    </void>
+    <void property="numberOfGroup">
+     <int>3333</int>
+    </void>
+    <void property="surname">
+     <string>QQQ</string>
+    </void>
+    <void property="university">
+     <string>BSUIR</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.bsuir.archive.domain.Matter">
+    <void property="ageOfStudent">
+     <int>34</int>
+    </void>
+    <void property="id">
+     <int>4</int>
+    </void>
+    <void property="nameOfStudent">
+     <string>Maria</string>
+    </void>
+    <void property="numberOfGroup">
+     <int>5567</int>
+    </void>
+    <void property="surname">
+     <string>WWW</string>
+    </void>
+    <void property="university">
+     <string>BSU</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.bsuir.archive.domain.Matter">
+    <void property="ageOfStudent">
+     <int>33</int>
+    </void>
+    <void property="id">
+     <int>5</int>
+    </void>
+    <void property="nameOfStudent">
+     <string>Vasya</string>
+    </void>
+    <void property="numberOfGroup">
+     <int>3333</int>
+    </void>
+    <void property="surname">
+     <string>qqqq</string>
+    </void>
+    <void property="university">
+     <string>BSUIR</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.bsuir.archive.domain.Matter">
+    <void property="ageOfStudent">
+     <int>23</int>
+    </void>
+    <void property="id">
+     <int>6</int>
+    </void>
+    <void property="nameOfStudent">
+     <string>Maria</string>
+    </void>
+    <void property="numberOfGroup">
+     <int>543</int>
+    </void>
+    <void property="surname">
+     <string>qqqqq</string>
+    </void>
+    <void property="university">
+     <string>BSUIR</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

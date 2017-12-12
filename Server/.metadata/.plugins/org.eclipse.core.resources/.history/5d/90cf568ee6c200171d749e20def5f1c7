@@ -1,0 +1,28 @@
+package by.bsuir.archive.connect;
+
+import by.bsuir.archive.service.MatterService;
+import by.bsuir.archive.service.ServiceFactory;
+import by.bsuir.archive.service.UserService;
+import by.bsuir.archive.service.impl.MatterServiceImpl;
+import by.bsuir.archive.service.impl.UserServiceImpl;
+
+public class FactoryConnection {
+
+private static final ServiceFactory factory = new ServiceFactory();
+
+private final MatterService matterService = new MatterServiceImpl();
+private final UserService userService = new UserServiceImpl();
+
+
+public static ServiceFactory getInstance() {
+	return factory;
+}
+
+public MatterService getBookService() {
+	return matterService;
+}
+
+public UserService getUserService() {
+	return userService;
+}
+}

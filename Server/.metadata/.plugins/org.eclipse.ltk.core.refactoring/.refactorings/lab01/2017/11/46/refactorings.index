@@ -1,0 +1,57 @@
+1509954983978	Encapsulate field 'numberOfGroup'
+1509956194971	Encapsulate field 'surname'
+1509956263688	Encapsulate field 'numberOfGroup'
+1509960421016	Copy package
+1509960433673	Rename package 'by.bsuir.server.controller.copy'
+1509960460396	Copy package
+1509960598189	Copy package
+1509960613192	Copy package
+1509961126810	Rename type 'LoginationCommand'
+1509961142889	Rename type 'FindBookCommand'
+1509961302912	Delete element
+1509961328549	Copy package
+1509961363110	Delete element
+1509961370022	Rename package 'by.bsuir.server.service.copy'
+1509961385354	Copy package
+1509961396013	Copy package
+1509961425621	Rename package 'by.bsuir.server.service.exception.copy'
+1509961431745	Rename package 'by.bsuir.server.service.impl.copy'
+1509961475562	Rename compilation unit 'BookService.java'
+1509961494869	Delete element
+1509961512749	Rename compilation unit 'BookServiceImpl.java'
+1509962869578	Delete element
+1509963212329	Rename compilation unit 'BookService.java'
+1509963236092	Rename type 'BookServiceImpl'
+1509965138154	Encapsulate field 'matter'
+1509965869830	Rename type 'Server'
+1509967432190	Encapsulate field 'socket'
+1509968114471	Delete element
+1509976520832	Encapsulate field 'name'
+1509976524338	Encapsulate field 'surname'
+1509976536788	Encapsulate field 'university'
+1509976542902	Encapsulate field 'age'
+1509976553925	Encapsulate field 'numberOfGroup'
+1509976557198	Encapsulate field 'id'
+1509977160856	Encapsulate field 'answer'
+1509983818414	Delete element
+1509995332999	Move compilation unit
+1510052356684	Delete element
+1510052363273	Delete element
+1510052381788	Delete element
+1510052529042	Delete element
+1510172411481	Delete element
+1510172461438	Move compilation unit
+1510172532370	Move compilation unit
+1510172547336	Delete element
+1510172552816	Move compilation unit
+1510172557136	Move compilation unit
+1510173824869	Rename package 'by.bsuir.server'
+1510176752377	Delete element
+1510177150582	Delete element
+1510320528599	Rename compilation unit 'SerializeException.java'
+1510321593041	Delete element
+1510321612688	Move compilation unit
+1510332815630	Delete element
+1510334166211	Delete element
+1510335593028	Encapsulate field 'prefix'
+1510337256929	Delete element

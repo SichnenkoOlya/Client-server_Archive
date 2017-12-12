@@ -1,0 +1,5 @@
+package by.bsuir.archive.serialization.exception;
+
+public class SerializationException {
+
+}

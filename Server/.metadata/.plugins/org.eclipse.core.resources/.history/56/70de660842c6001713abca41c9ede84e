@@ -1,0 +1,15 @@
+package by.bsuir.archive.parser;
+
+public class Namespace {
+	private String prefix;
+
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
+
+}

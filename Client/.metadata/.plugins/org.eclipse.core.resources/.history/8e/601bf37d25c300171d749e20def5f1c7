@@ -1,0 +1,13 @@
+package by.bsuir.server;
+
+public class Ping extends Message {
+
+	public Ping(String accessRights) {
+		super(accessRights);
+		// TODO Auto-generated constructor stub
+	}
+	/*public Ping() {
+		
+		super("ping", "ping");
+	}*/
+}

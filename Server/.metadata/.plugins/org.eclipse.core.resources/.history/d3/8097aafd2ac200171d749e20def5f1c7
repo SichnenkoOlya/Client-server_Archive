@@ -1,0 +1,41 @@
+package by.bsuir.lab01.service.impl;
+
+import by.bsuir.archive.dao.BookDAO;
+import by.bsuir.archive.dao.DAOFactory;
+import by.bsuir.archive.dao.exception.DAOException;
+import by.bsuir.archive.domain.Book;
+import by.bsuir.archive.service.BookService;
+import by.bsuir.archive.service.exception.ServiceException;
+
+public class BookServiceImpl implements BookService {
+
+	@Override
+	public boolean addBook(Book book) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Book findBook(String title) throws ServiceException{
+		// VALIDATION
+		
+		DAOFactory factory = DAOFactory.getInstance();
+		BookDAO bookDAO = factory.getBookDAO();
+		Book book;
+		
+		try {
+			book = bookDAO.findBook(title);
+		} catch (DAOException e) {
+			throw new ServiceException("message", e);
+		}
+
+		return book;
+	}
+
+	@Override
+	public boolean deleteBook(int idBook) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

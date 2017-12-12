@@ -1,0 +1,31 @@
+package by.bsuir.archive.dao.impl;
+
+import by.bsuir.archive.dao.DAOMatter;
+import by.bsuir.server.dao.exception.DAOException;
+import by.bsuir.server.domain.Matter;
+
+public class DAOMatterImpl implements DAOMatter {
+
+	@Override
+	public void createMatter(String surname, String name, int age, String univer, int numberOfGroup)
+			throws DAOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Matter findMatter(int idMatter) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeMatter(int idMatter, String newSurname, String newName, int newAge, String newUniver,
+			int newNumberOfGroup) throws DAOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

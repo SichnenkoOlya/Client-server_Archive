@@ -1,0 +1,5 @@
+package by.bsuir.archive.connect;
+
+public class FactoryConnection {
+
+}

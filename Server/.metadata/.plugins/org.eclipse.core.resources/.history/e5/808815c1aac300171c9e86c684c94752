@@ -1,0 +1,29 @@
+package by.bsuir.archive.service.impl;
+
+import by.bsuir.archive.service.MatterService;
+import by.bsuir.server.service.exception.ServiceException;
+
+public class MatterServiceImpl implements MatterService {
+
+	@Override
+	public void createMatter(String surname, String name, int age, String univer, int numberOfGroup)
+			throws ServiceException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String findMatter(int idMatter) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeMatter(int idMatter, String newSurname, String newName, int newAge, String newUniver,
+			int newNumberOfGroup) throws ServiceException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

@@ -1,0 +1,10 @@
+package by.bsuir.archive.main;
+
+import by.bsuir.archive.connect.Server;
+
+public class Main {
+	public static void main(String[] args) {
+		Server server= Server.getInstance();
+		server.Start();
+	}
+}

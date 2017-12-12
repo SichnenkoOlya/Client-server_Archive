@@ -1,0 +1,57 @@
+package by.bsuir.archive.connect.socket;
+
+import java.io.*;
+import java.net.*;
+
+import by.bsuir.archive.connect.Message;
+import by.bsuir.archive.connect.socket.exception.SocketStreamException;
+
+public class SocketStream {
+
+    protected Socket socket;
+    protected ObjectInputStream input=null;
+    protected ObjectOutputStream output=null;
+
+    SocketStream(InetAddress acceptorHost, int acceptorPort) 
+    		throws SocketException, IOException {
+        socket = new Socket(acceptorHost, acceptorPort);
+        setStreams();
+    }
+
+    public SocketStream(Socket socket) throws SocketStreamException{
+        this.socket = socket;
+        try {
+			setStreams();
+		} catch (IOException e) {
+			throw new SocketStreamException();
+		}
+    }
+
+    private  void setStreams() throws IOException {
+   	 
+    	OutputStream os=socket.getOutputStream();
+        output = new ObjectOutputStream(os);
+    	InputStream is=socket.getInputStream();
+        input = new ObjectInputStream(is);    	
+    }
+
+    public void sendMessage(Message message) throws IOException {
+        output.writeObject(message);
+        output.flush();
+    }
+
+    public Message receiveMessage() throws IOException {
+        Message message=null;
+		try {
+			message = (Message) input.readObject();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+        return message;
+    }
+
+    public void close() throws IOException {
+        socket.close();
+    }
+
+} 
